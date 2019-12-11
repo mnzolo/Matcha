@@ -32,14 +32,43 @@
             height: 600px;
             width: 800px;
         }
+
+        /* .form-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        } */
     </style>
+    <!-- <script>
+        function openForm()
+        {
+            document.getElementById("myabout").style.display = "block";
+        }
+    </script> -->
 </head>
 <!-- https://gcs.thesouthafrican.com/2019/12/edf14e72-zozibini-tunzi-2-1200x858.jpg -->
+
 <body>
     <div class="topcontainer">
         <div class="picbod">
             <img class="proimage" src="kolisi.jpeg" alt="prifile picture">
-            <button style="margin-top: 20px;" type="submit" name="editmydetails">Edit Profile Picture</button>
+            <div style="display: flex;">
+                <div style="margin-right: 20px;">
+                    <form action="/profile.html" method="post">
+                        <input style="margin-top: 20px;" type="submit" name="Take" value="Take">
+                    </form>
+                </div>
+                <div>
+                    <form action="/profile.html" method="post" enctype="multipart/form-data">
+                        <input style="margin-top: 20px;" type="file" name="fileuploaded">
+                        <!-- <input type="hidden" name="Checker" value="Checker"> -->
+                        <input type="submit" name="upload" value="upload">
+                    </form>
+                </div>
+            </div>
         </div>
         <div style="display: flex;margin: 50px;">
             <div>
@@ -54,19 +83,26 @@
             </div>
         </div>
         <div class="rating">
-            <p style="margin-bottom:50px;color: pink;font-size: 40px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">100%</p>
-            <p style="font-size: 35px;color:lightcoral;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Match</p>
+            <p
+                style="margin-bottom:50px;color: pink;font-size: 40px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                100%</p>
+            <p
+                style="font-size: 35px;color:lightcoral;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                Match</p>
         </div>
     </div>
     <hr style="width: 900px">
     <div class="bio">
         <div>
-            <p style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;font-size: 40px;color: pink;">
+            <p
+                style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;font-size: 40px;color: pink;">
                 About MySelf
             </p>
-            <button type="submit" name="editmydetails">Edit About Information</button>
+            <form action="/profile.html" method="post">
+                <input type="submit" name="About" value="About">
+            </form>
             <hr>
-            <p  style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                 This beautiful book of African inspiration combines the poetic words of renowned South African author
                 Wayne Visser and the images of exhibited British photographer Bob Webzell in a celebration of the
                 people, landscapes and wildlife of the luminous continent. This collection includes the well-known poem,
@@ -75,10 +111,13 @@
             </p>
         </div>
         <div>
-            <p style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;font-size: 40px;color: pink;">
+            <p
+                style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;font-size: 40px;color: pink;">
                 My Details
             </p>
-            <button type="submit" name="editmydetails">Edit Mydetails</button>
+            <form action="/profile.html" method="post">
+                <input type="submit" name="Details" value="Details">
+            </form>
             <hr>
             <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                 Last Online&nbsp;&nbsp;15&nbsp;October
