@@ -25,6 +25,10 @@ app.post("/profile.html", function (req, res) {
         console.log("Taking image");
         res.sendFile(__dirname + "/profile.html");
     }
+    else if (req.body.Geolocation == "Geolocation") {
+        console.log("Finding your current location");
+        res.sendFile(__dirname + "/profile.html");
+    }
     else if (req.body.upload == undefined) {
         var form = new formidable.IncomingForm();
 
