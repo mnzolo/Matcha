@@ -158,13 +158,56 @@
         </div>
         <div>
             <h3 class="location" >Your Geolocation</h3>
-            <div class="Map">
+            <div id="Map" class="Map">
             </div>
-            <form action="/profile.html" method="post">
+            <p id="location"></p>
+            <button name="getlocation" onclick="getGeoLocation()">Get Your location</button>
+            <!-- <form action="/profile.html" method="post"></form>
                 <input type="submit" name="Geolocation" value="Geolocation">
-            </form>
+            </form> -->
         </div>
     </div>
 </body>
+<script>
+    function getGeoLocation()
+    {
+        if (navigator.geolocation)
+        {
+            navigator.geolocation.getCurrentPosition(showPosition,showError)
+        }
+        else
+        {
+            document.getElementById("location").innerHTML = "Geolocation Is Not Supported By Your Browser";
+        }
 
+        function showPosition(position)
+        {
+            document.getElementById("location").innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
+            /* var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+            var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=500x500&sensor=false&key=b7c3134b371096";
+
+            document.getElementById("Map").innerHTML = "<img src='"+img_url+"' alt='yourlocation'>"; */
+        }
+        function showError(positionError)
+        {
+            switch (positionError.code)
+            {
+                case positionError.PERMISSION_DENIED:
+                    document.getElementById("location").innerHTML = "You denied your device location"
+                    break;
+                case positionError.POSITION_UNAVAILABLE:
+                    document.getElementById("location").innerHTML = "Your Device had an Internal Error"
+                    break;
+                case positionError.TIMEOUT:
+                    document.getElementById("location").innerHTML = "Your device had a TIMEOUT WHILE retrieving your location"
+                    break;
+                case positionError.UNKNOWN_ERROR:
+                    document.getElementById("location").innerHTML = "AN UNKOWN ERROR OCCURED"
+                    break;
+            }
+        }
+    }
+</script>
 </html>
